@@ -88,14 +88,12 @@ for (let indiceEvent = 0; indiceEvent < btnLike.length; indiceEvent++){
         countInput++;
         console.log(countInput)
         btnCount.innerHTML = countInput;
+        countInput--;
     });
     
     console.log(countInput);
 }
 
-// while (condition) {
-    
-// }
 
 
 
