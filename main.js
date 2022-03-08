@@ -78,10 +78,7 @@ const areaStampCard = document.getElementById('container');
 
 for (let i = 0; i < posts.length; i++) { // uso il minore senza l'uguale per non utilizzare il lenght - 1
 createCard(posts[i]);// callback della funzione con argomenti inseriti
-document.querySelectorAll('.js-like-button').addEventListener('click', function(){
-    clickColorLiked();
-    //addLikeAtCounter();
-});
+addEventAtBtnLike();
 };
 
 
@@ -121,8 +118,12 @@ function createCard(posts){
 }
 
 // Milestone 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
-
-
+function addEventAtBtnLike(){
+    document.querySelectorAll('.js-like-button').addEventListener('click', function(){
+        clickColorLiked();
+        //addLikeAtCounter();
+    });
+}
 function clickColorLiked(){
     document.querySelectorAll('.js-like-button').classList.add('like-button--liked');
 }
