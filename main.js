@@ -38,7 +38,7 @@ const posts = [
         "media": "https://unsplash.it/600/400?image=24",
         "author": {
             "name": "Luca Formicola",
-            "image": null
+            "image": "https://unsplash.it/300/300?image=20"
         },
         "likes": 56,
         "created": "2021-04-03"
@@ -72,14 +72,36 @@ const posts = [
 
 const areaStampCard = document.getElementById('container');
 
-
 // Milestone 1 - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
 
-
-for (let i = 0; i < posts.length; i++) { // uso il minore senza l'uguale per non utilizzare il lenght - 1
-createCard(posts[i]);// callback della funzione con argomenti inseriti
-addEventAtBtnLike();
+//ciclo per creare le carte
+for (let indicePost = 0; indicePost < posts.length; indicePost++) { // uso il minore senza l'uguale per non utilizzare il lenght - 1
+    createCard(posts[indicePost]);// callback della funzione con argomenti inseriti
 };
+//ciclo per aggiungere ad ogni card l'evento di colorare il mi piace
+const btnLike = document.querySelectorAll('.js-like-button');
+const btnCount = document.getElementById('like-counter-1')
+for (let indiceEvent = 0; indiceEvent < btnLike.length; indiceEvent++){
+    let countInput = posts[indiceEvent].likes;
+    btnLike[indiceEvent].addEventListener('click', function(){
+        btnLike[indiceEvent].classList.toggle('like-button--liked');
+        countInput++;
+        console.log(countInput)
+        btnCount.innerHTML = countInput;
+    });
+    
+    console.log(countInput);
+}
+
+// while (condition) {
+    
+// }
+
+
+
+
+
+console.log(btnLike)
 
 
 function createCard(posts){ 
@@ -113,20 +135,12 @@ function createCard(posts){
             </div> 
         </div>            
     </div>`; 
-
     
-}
+};
+
 
 // Milestone 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
-function addEventAtBtnLike(){
-    document.querySelectorAll('.js-like-button').addEventListener('click', function(){
-        clickColorLiked();
-        //addLikeAtCounter();
-    });
-}
-function clickColorLiked(){
-    document.querySelectorAll('.js-like-button').classList.add('like-button--liked');
-}
+
 
 // Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 
