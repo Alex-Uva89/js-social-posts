@@ -80,15 +80,6 @@ for (let i = 0; i < posts.length; i++) { // uso il minore senza l'uguale per non
 createCard(posts[i]);// callback della funzione con argomenti inseriti
 };
 
-// "id": 1,
-//         "content": "Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.",
-//         "media": "https://unsplash.it/600/300?image=171",
-//         "author": {
-//             "name": "Phil Mangione",
-//             "image": "https://unsplash.it/300/300?image=15"
-//         },
-//         "likes": 80,
-//         "created": "2021-06-25"
 
 function createCard(posts){ 
         areaStampCard.innerHTML += `<div class="post">
@@ -122,11 +113,14 @@ function createCard(posts){
         </div>            
     </div>`; 
 
-    btnLike.addEventListener('click', clickColorLiked());
-
+    
 }
 
 // Milestone 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+btnLike.addEventListener('click', function(){
+    clickColorLiked();
+    //addLikeAtCounter();
+});
 
 function clickColorLiked(){
     btnLike.classList.add('like-button--liked');
