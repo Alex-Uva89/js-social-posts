@@ -71,7 +71,7 @@ const posts = [
 // DATI HTML
 
 const areaStampCard = document.getElementById('container');
-const btnLike = document.querySelector('.js-like-button');
+
 
 // Milestone 1 - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
 
@@ -117,15 +117,14 @@ function createCard(posts){
 }
 
 // Milestone 2 - Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
-btnLike.addEventListener('click', function(){
+document.querySelectorAll('.js-like-button').addEventListener('click', function(){
     clickColorLiked();
     //addLikeAtCounter();
 });
 
 function clickColorLiked(){
-    btnLike.classList.add('like-button--liked');
+    document.querySelectorAll('.js-like-button').classList.add('like-button--liked');
 }
-
 
 // Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
 
